@@ -35,6 +35,7 @@ O escopo completo do projeto inclui realizar o log in ou sign in, o CRUD de uma 
 - Buscar viagens públicas através de filtros (ex.: buscar todas as viagens para a França com duração de dez dias);
 - Gráfico com todos os gastos de uma viagem por categoria;
 - Sessão de “passaporte” com histórico de todas as viagens;
+- Login social;
 
 ## Protótipos de telas
 
@@ -78,7 +79,7 @@ ___
 
 **SPRINT 2 - Estrutura inicial e Expo Router (1 semana) 11/abr**
 
-- [ ] Iniciar um novo projeto Expo;
+- [x] Iniciar um novo projeto Expo;
 - [ ] Criar as telas “Home”, “Expense - create (category)” e “Expense - create (details);
 - [ ] Configurar o(s) layout(s);
 - [ ] Configurar o roteamento entre telas;
@@ -158,3 +159,42 @@ ___
 | Sprint 5 | 2 semanas| Validação de dados                   | [ ]     |
 | Sprint 6 | 2 semanas| Empacotamento da aplicação           | [ ]     |
 | Sprint 7 | 1 semana | Entrega da versão final do app       | [ ]     |
+
+___
+
+## Comandos para rodar o projeto
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/giovanacassias/dolera_dpdm.git
+```
+
+### 2. Entre na pasta do projeto
+
+```bash
+cd dolera_dpdm
+```
+
+### 3. Dentro da raíz, instale as dependências
+
+```bash
+yarn install
+```
+ou
+
+```bash
+npm install
+```
+
+### 4. Inicie o Expo
+
+```bash
+yarn start
+```
+ou
+
+```bash
+npx expo start
+```
+
