@@ -7,8 +7,9 @@ export default function home() {
 
   return (
     <View style={styles.container}>
-      <Text>France 2026</Text>
-      <Link href={'/(auth)/expense/create-category'}>Add expense</Link>
+      <Text>Expense - details</Text>
+      <Text>Add details</Text>
+      <Link href={'/(auth)/home'}>SAVE</Link>
     </View>
   );
 }
