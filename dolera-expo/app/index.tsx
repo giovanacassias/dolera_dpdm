@@ -7,7 +7,16 @@ export default function index() {
   const router = useRouter();
 
   const handleLogin = () => {
-    router.push("/(auth)/home");
+
+/*     if(router.canDismiss()){
+      router.dismissAll();
+      console.log('true');
+    }
+
+    console.log('false');
+    router.push("/(auth)/home"); */
+
+    router.replace("/(auth)/home");
   }
     
   return (

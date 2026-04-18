@@ -1,9 +1,7 @@
 import { Link } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
-import { Button } from 'react-native';
 
 export default function home() {
-
 
   return (
     <View style={styles.container}>
