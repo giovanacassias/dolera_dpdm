@@ -1,11 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
+import { Link } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+export default function home() {
+
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text>Expense - category</Text>
+      <Text>Choose category</Text>
+      <Link href={'/(auth)/expense/create-details'}>NEXT</Link>
     </View>
   );
 }
