@@ -1,6 +1,7 @@
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { Input } from '@rneui/themed';
 
 export default function index() {
 
@@ -20,8 +21,9 @@ export default function index() {
   }
     
   return (
-    <View className="flex-1 items-center justify-center bg-blue-500">
+    <View className="flex-1 items-center justify-center bg-blue-100">
       <Text className="text-red-500">Entry point: index.tsx</Text>
+      <Input placeholder='username'></Input>
       <Button title='Log in' onPress={handleLogin}/>
       <StatusBar style="auto" />
     </View>
