@@ -153,7 +153,7 @@ ___
 | Sprint   | Duração  | Entrega                              | Feito   |
 |----------|----------|--------------------------------------|---------|
 | Sprint 1 | 1 semana | Planejamento                         | [x]     |
-| Sprint 2 | 1 semana | Estrutura inicial e Expo Router      | [ ]     |
+| Sprint 2 | 1 semana | Estrutura inicial e Expo Router      | [x]     |
 | Sprint 3 | 3 semanas| Implementação das três telas         | [ ]     |
 | Sprint 4 | 2 semanas| Persistência local dos dados         | [ ]     |
 | Sprint 5 | 2 semanas| Validação de dados                   | [ ]     |
@@ -173,7 +173,7 @@ git clone https://github.com/giovanacassias/dolera_dpdm.git
 ### 2. Entre na pasta do projeto
 
 ```bash
-cd dolera_dpdm
+cd .\dolera-expo\
 ```
 
 ### 3. Dentro da raíz, instale as dependências
