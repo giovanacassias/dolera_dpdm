@@ -20,8 +20,8 @@ export default function index() {
   }
     
   return (
-    <View style={styles.container}>
-      <Text>Entry point: index.tsx</Text>
+    <View className="flex-1 items-center justify-center bg-blue-500">
+      <Text className="text-red-500">Entry point: index.tsx</Text>
       <Button title='Log in' onPress={handleLogin}/>
       <StatusBar style="auto" />
     </View>
