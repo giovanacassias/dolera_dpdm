@@ -80,9 +80,9 @@ ___
 **SPRINT 2 - Estrutura inicial e Expo Router (1 semana) 11/abr**
 
 - [x] Iniciar um novo projeto Expo;
-- [ ] Criar as telas “Home”, “Expense - create (category)” e “Expense - create (details);
-- [ ] Configurar o(s) layout(s);
-- [ ] Configurar o roteamento entre telas;
+- [x] Criar as telas “Home”, “Expense - create (category)” e “Expense - create (details);
+- [x] Configurar o(s) layout(s);
+- [x] Configurar o roteamento entre telas;
 
 *PR: Estrutura inicial e roteamento*
 
