@@ -1,53 +1,49 @@
 import { View } from "react-native";
-import { useEffect, useState } from "react";
-import { colors } from "../../assets/theme/colors";
-import MaterialIcons from "@react-native-vector-icons/material-icons";
 import CategoryCheckBox from "./categoryCheckBox";
+import { IconName } from "../../types/icons";
 
+type Category = {
+  id: number;
+  name: string;
+  icon: IconName;
+};
 
-export default function ExpenseCategory() {
-  const [check1, setCheck1] = useState(false);
-  const [check2, setCheck2] = useState(false);
-  const [check3, setCheck3] = useState(false);
-  const [check4, setCheck4] = useState(false);
-  const [check5, setCheck5] = useState(false);
-  const [check6, setCheck6] = useState(false);
-  const [check7, setCheck7] = useState(false);
+const categories: Category[] = [
+  { id: 1, name: "Accommodation", icon: "cottage" },
+  { id: 2, name: "Transportation", icon: "connecting-airports" },
+  { id: 3, name: "Shopping", icon: "shopping-bag" },
+  { id: 4, name: "Food", icon: "dinner-dining" },
+  { id: 5, name: "Sightseeing", icon: "landscape" },
+  { id: 6, name: "Fees", icon: "attach-money" },
+  { id: 7, name: "Others", icon: "wallet" },
+];
 
-  useEffect(() => {
-    console.log("check atualizado:", check6);
-  }, [check6]);
+interface ExpenseCategoryProps {
+  selected: number[];
+  setSelected: React.Dispatch<React.SetStateAction<number[]>>;
+}
+
+export default function ExpenseCategory({
+  selected,
+  setSelected,
+}: ExpenseCategoryProps) {
+  const toggleCategory = (id: number) => {
+    setSelected((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
+    );
+  };
 
   return (
     <View className="bg-white flex-col items-center justify-evenly h-[420px] rounded-lg">
-
-      <View className={`flex-row justify-between items-center w-11/12 h-15 rounded-lg ${check1 ? 'bg-white' : 'bg-white'}`}>
-        <CategoryCheckBox title="Accommodation" check={check1} setCheck={setCheck1} icon={<MaterialIcons name="cottage" size={30} color={colors.darkGreen} />}/>
-      </View>
-
-      <View className={`flex-row justify-between items-center w-11/12 h-15 rounded-lg ${check2 ? 'bg-white' : 'bg-white'}`}>
-        <CategoryCheckBox title="Transportation" check={check2} setCheck={setCheck2} icon={<MaterialIcons name="connecting-airports" size={30} color={colors.darkGreen} />}/>
-      </View>
-
-      <View className={`flex-row justify-between items-center w-11/12 h-15 rounded-lg ${check2 ? 'bg-white' : 'bg-white'}`}>
-        <CategoryCheckBox title="Shopping" check={check3} setCheck={setCheck3} icon={<MaterialIcons name="shopping-bag" size={30} color={colors.darkGreen} />}/>
-      </View>
-
-      <View className={`flex-row justify-between items-center w-11/12 h-15 rounded-lg ${check2 ? 'bg-white' : 'bg-white'}`}>
-        <CategoryCheckBox title="Food" check={check4} setCheck={setCheck4} icon={<MaterialIcons name="dinner-dining" size={30} color={colors.darkGreen} />}/>
-      </View>
-
-      <View className={`flex-row justify-between items-center w-11/12 h-15 rounded-lg ${check2 ? 'bg-white' : 'bg-white'}`}>
-        <CategoryCheckBox title="Sightseeing" check={check5} setCheck={setCheck5} icon={<MaterialIcons name="landscape" size={30} color={colors.darkGreen} />}/>
-      </View>
-
-      <View className={`flex-row justify-between items-center w-11/12 h-15 rounded-lg ${check2 ? 'bg-white' : 'bg-white'}`}>
-        <CategoryCheckBox title="Fees" check={check6} setCheck={setCheck6} icon={<MaterialIcons name="attach-money" size={30} color={colors.darkGreen} />}/>
-      </View>
-
-      <View className={`flex-row justify-between items-center w-11/12 h-15 rounded-lg ${check2 ? 'bg-white' : 'bg-white'}`}>
-        <CategoryCheckBox title="Others" check={check7} setCheck={setCheck7} icon={<MaterialIcons name="wallet" size={30} color={colors.darkGreen} />}/>
-      </View>
+      {categories.map((cat) => (
+        <CategoryCheckBox
+          key={cat.id}
+          title={cat.name}
+          check={selected.includes(cat.id)}
+          onPress={() => toggleCategory(cat.id)}
+          icon={cat.icon}
+        />
+      ))}
     </View>
   );
 }

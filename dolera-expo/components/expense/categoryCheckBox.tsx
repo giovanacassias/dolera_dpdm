@@ -1,40 +1,40 @@
 import { View, Text } from "react-native";
-import { useState } from "react";
 import { colors } from "../../assets/theme/colors";
-import { Icon, CheckBox } from "@rneui/themed";
+import { CheckBox } from "@rneui/themed";
+import MaterialIcons from "@react-native-vector-icons/material-icons";
+import { IconName } from "../../types/icons";
 
 interface CategoryCheckBoxProps {
-  icon: React.ReactNode;
+  icon: IconName;
   title: string;
-  setCheck: (bol: boolean) => void;
   check: boolean;
+  onPress: () => void;
 }
 
 export default function CategoryCheckBox({
   icon,
   title,
   check,
-  setCheck,
+  onPress,
 }: CategoryCheckBoxProps) {
   return (
-    <View className="flex-row items-center w-full rounded-lg bg-white">
+    <View className="flex-row items-center w-11/12 h-15 rounded-lg bg-white">
       <CheckBox
-        className="w-2/12"
         checked={check}
-        containerStyle={{
-          backgroundColor: "transparent",
-        }}
-        onPress={() => setCheck(!check)}
+        onPress={onPress}
+        containerStyle={{ backgroundColor: "transparent" }}
         checkedColor={colors.darkGreen}
         uncheckedColor={colors.lightGreen}
       />
-      {icon}
-      <View className="w-8/12 pl-4">
+
+      <MaterialIcons name={icon} size={30} color={colors.darkGreen} />
+
+      <View>
         <Text
           style={{
             fontWeight: "700",
             fontSize: 12,
-            color: `${colors.darkGreen}`
+            color: colors.darkGreen,
           }}
         >
           {title}
