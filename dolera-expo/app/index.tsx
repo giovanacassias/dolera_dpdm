@@ -1,6 +1,6 @@
 import { useRouter } from "expo-router";
 import { Text, View } from "react-native";
-import { Input, Image, Button } from "@rneui/themed";
+import { Input, Image } from "@rneui/themed";
 import { colors } from "../assets/theme/colors";
 import CustomButton from "../components/customButton";
 
@@ -56,8 +56,8 @@ export default function index() {
 
       <CustomButton>
         <CustomButton.coral title="Login" onPress={handleLogin} />
-        <CustomButton.white title="Cancel" onPress={handleLogin} />
-        <CustomButton.darkCoral title="Save" onPress={handleLogin} />
+        {/* <CustomButton.white title="Cancel" onPress={handleLogin} />
+        <CustomButton.darkCoral title="Save" onPress={handleLogin} /> */}
       </CustomButton>
     </View>
   );
