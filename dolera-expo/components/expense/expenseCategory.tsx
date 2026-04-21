@@ -1,12 +1,6 @@
 import { View } from "react-native";
 import CategoryCheckBox from "./categoryCheckBox";
-import { IconName } from "../../types/icons";
-
-type Category = {
-  id: number;
-  name: string;
-  icon: IconName;
-};
+import { Category } from "../../types/categories";
 
 const categories: Category[] = [
   { id: 1, name: "Accommodation", icon: "cottage" },

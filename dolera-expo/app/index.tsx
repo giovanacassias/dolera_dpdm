@@ -43,21 +43,8 @@ export default function index() {
         }}
       ></Input>
 
-      {/*       <Button
-        title="Login"
-        onPress={handleLogin}
-        buttonStyle={{
-          backgroundColor: colors.lightCoral,
-          width: 300,
-          marginTop: 30,
-          borderRadius: 20,
-        }}
-      /> */}
-
       <CustomButton>
         <CustomButton.coral title="Login" onPress={handleLogin} />
-        {/* <CustomButton.white title="Cancel" onPress={handleLogin} />
-        <CustomButton.darkCoral title="Save" onPress={handleLogin} /> */}
       </CustomButton>
     </View>
   );
