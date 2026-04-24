@@ -18,7 +18,7 @@ export default function CategoryCheckBox({
   onPress,
 }: CategoryCheckBoxProps) {
   return (
-    <View className="flex-row items-center w-11/12 h-15 rounded-lg bg-white">
+    <View className="flex-row items-center w-11/12 flex-1 rounded-lg bg-white">
       <CheckBox
         checked={check}
         onPress={onPress}
@@ -35,6 +35,7 @@ export default function CategoryCheckBox({
             fontWeight: "700",
             fontSize: 12,
             color: colors.darkGreen,
+            marginLeft: 10,
           }}
         >
           {title}

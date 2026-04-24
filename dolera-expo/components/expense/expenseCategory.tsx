@@ -28,7 +28,7 @@ export default function ExpenseCategory({
   };
 
   return (
-    <View className="bg-white flex-col items-center justify-evenly h-[420px] rounded-lg">
+    <View className="bg-white flex-col items-center justify-evenly flex-1 rounded-lg">
       {categories.map((cat) => (
         <CategoryCheckBox
           key={cat.id}
