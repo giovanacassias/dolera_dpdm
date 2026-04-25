@@ -1,11 +1,10 @@
 import { useRouter } from "expo-router";
 import { ScrollView, View } from "react-native";
 import ExpenseCategory from "../../../components/expense/expenseCategory";
-import { Text } from "@rneui/themed";
-import { colors } from "../../../assets/theme/colors";
 import MaterialIcons from "@react-native-vector-icons/material-icons";
 import { Pressable } from "react-native";
 import { useEffect, useState } from "react";
+import CrudTitle from "../../../components/titles/crudTitle";
 
 export default function home() {
   const router = useRouter();
@@ -23,29 +22,8 @@ export default function home() {
         className="flex-1"
         contentContainerStyle={{ flexGrow: 1 }}
       >
-        <View className="w-full pl-12 pr-12 bg-almost-white flex-1">
-          <Text
-            style={{
-              fontSize: 45,
-              fontWeight: "900",
-              color: `${colors.darkGreen}`,
-              lineHeight: 35,
-              marginTop: 20,
-            }}
-          >
-            Choose a
-          </Text>
-          <Text
-            style={{
-              fontSize: 45,
-              fontWeight: "900",
-              marginBottom: 35,
-              color: `${colors.coral}`,
-              lineHeight: 50,
-            }}
-          >
-            category
-          </Text>
+        <View className="w-full pl-8 pr-8 bg-almost-white flex-1">
+          <CrudTitle title1="Choose a" title2="Category" />
 
           <ExpenseCategory selected={selected} setSelected={setSelected} />
 

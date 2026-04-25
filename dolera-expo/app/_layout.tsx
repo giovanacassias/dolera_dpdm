@@ -23,7 +23,14 @@ export default function _layout() {
       />
       <Stack.Screen
         name="(auth)/expense/create-details"
-        options={{ title: "Details" }}
+        options={{
+          title: "",
+          headerStyle: {
+            backgroundColor: `${colors.almostWhite}`,
+          },
+          headerShadowVisible: false,
+          headerTintColor: `${colors.darkGreen}`,
+        }}
       />
     </Stack>
   );

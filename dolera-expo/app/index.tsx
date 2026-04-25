@@ -3,7 +3,6 @@ import { Text, View } from "react-native";
 import { Input, Image } from "@rneui/themed";
 import { colors } from "../assets/theme/colors";
 import CustomButton from "../components/customButton";
-import { ScrollView } from "react-native";
 
 export default function index() {
   const router = useRouter();

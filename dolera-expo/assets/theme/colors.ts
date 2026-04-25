@@ -4,5 +4,6 @@ export const colors = {
     coral: "#FA795D",
     darkCoral: "#FB6848",
     lightGreen: "rgb(35, 51, 41, 0.10)",
-    darkGreen: "#233329"
+    darkGreen: "#233329",
+    lightGray: "#DBDBDB"
 };
