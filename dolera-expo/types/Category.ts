@@ -1,4 +1,4 @@
-import { IconName } from "./icons";
+import { IconName } from "./Icon";
 
 export type Category = {
   id: number;

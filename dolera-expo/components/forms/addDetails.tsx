@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 import CustomInput from "./inputs/customInput";
-import { Expense } from "../../types/expenses";
+import { Expense } from "../../types/Expense";
 
 interface AddDetailsProps {
   mock: Expense;
@@ -12,9 +12,9 @@ export default function AddDetails({ mock }: AddDetailsProps) {
   return (
     <View>
       {Object.entries(mock)
-        .filter(([key]) => key !== "id")
+        .filter(([key]) => key !== "id" && key !== "categories")
         .map(([key, value]) => (
-          <CustomInput key={key} label={key} placeholder={value} />
+          <CustomInput key={key} label={key} placeholder={String(value)} />
         ))}
     </View>
   );

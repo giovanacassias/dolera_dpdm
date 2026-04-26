@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import { colors } from "../../assets/theme/colors";
 import { CheckBox } from "@rneui/themed";
 import MaterialIcons from "@react-native-vector-icons/material-icons";
-import { IconName } from "../../types/icons";
+import { IconName } from "../../types/Icon";
 
 interface CategoryCheckBoxProps {
   icon: IconName;
