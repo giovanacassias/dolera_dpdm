@@ -4,6 +4,12 @@ import ExpenseItem from "./expenseItem";
 import { categories } from "../../mocks/categories";
 
 export default function ExpensesFlatList() {
+
+  const findIcon = (index: number) => {
+    return(categories[index - 1].icon);
+  }
+
+
   return (
     <View className="bg-almost-white  flex justify-center">
       <FlatList
@@ -16,7 +22,7 @@ export default function ExpensesFlatList() {
             <ExpenseItem
               title={item.name}
               note={item.note}
-              catId={item.categories[0]}
+              icon={findIcon(item.categories[0])}
               amount={item.amount}
             />
           </View>

@@ -1,5 +1,4 @@
 import { Expense } from "../types/Expense";
-import { Category } from "../types/Category";
 
 export let data: Expense[] = [
   {

@@ -1,11 +1,10 @@
 import { View, Text } from "react-native";
 import { colors } from "../../assets/theme/colors";
 import { CheckBox } from "@rneui/themed";
-import MaterialIcons from "@react-native-vector-icons/material-icons";
-import { IconName } from "../../types/Icon";
+import { MaterialIcons } from "@expo/vector-icons";
 
 interface CategoryCheckBoxProps {
-  icon: IconName;
+  icon: keyof typeof MaterialIcons.glyphMap;
   title: string;
   check: boolean;
   onPress: () => void;
