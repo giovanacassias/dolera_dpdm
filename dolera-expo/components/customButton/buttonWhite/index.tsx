@@ -21,7 +21,7 @@ export default function ButtonWhite({ title, onPress }: CustomButtonProps) {
         titleStyle={{
           textTransform: "capitalize",
           fontSize: 12,
-          fontWeight: "800",
+          fontFamily: "Outfit_600SemiBold",
           color: colors.darkGreen,
         }}
       />

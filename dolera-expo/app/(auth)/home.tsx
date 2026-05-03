@@ -6,6 +6,7 @@ import { Category } from "../../types/Category";
 import CustomButton from "../../components/customButton";
 import { ScrollView } from "react-native";
 import ExpensesFlatList from "../../components/expense/expensesFlatList";
+import Budget from "../../components/header/budget";
 
 const categories: Category[] = [
   { id: 1, name: "Accommodation", icon: "cottage" },
@@ -30,9 +31,7 @@ export default function home() {
         <MainHeader />
       </View>
 
-      <View className="h-1/6 w-full flex-row items-center">
-        <View className="h-2/3 bg-coral w-full rounded-se-full rounded-ss-full rounded-ee-full rounded-es-full"></View>
-      </View>
+      <Budget />
 
       <View className="bg-almost-white h-3/6 flex justify-center">
         <ExpensesFlatList />

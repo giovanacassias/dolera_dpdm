@@ -25,7 +25,7 @@ export default function ExpenseItem({
         <View className="h-full w-6/12 flex-col justify-start items-start">
           <Text
             style={{
-              fontWeight: "600",
+              fontFamily: "Outfit_600SemiBold",
               fontSize: 14,
               color: colors.darkGreen,
               marginLeft: 10,
@@ -35,8 +35,8 @@ export default function ExpenseItem({
             {title}
           </Text>
           <Text
-            className=""
             style={{
+              fontFamily: "Outfit_300Light",
               fontSize: 10,
               marginLeft: 10,
               width: "100%",
@@ -50,7 +50,7 @@ export default function ExpenseItem({
         <View className="h-full w-4/12 flex-row justify-center items-center">
           <Text
             style={{
-              fontWeight: "600",
+              fontFamily: "Outfit_600SemiBold",
               fontSize: 14,
               color: colors.darkGreen,
               marginLeft: 10,

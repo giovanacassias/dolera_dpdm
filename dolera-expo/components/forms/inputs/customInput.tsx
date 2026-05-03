@@ -9,7 +9,7 @@ interface CustomInputProps {
 
 export default function CustomInput({ label, placeholder }: CustomInputProps) {
   return (
-    <View className="">
+    <View>
       <Input 
         placeholder={placeholder}
         label={label}
@@ -17,7 +17,7 @@ export default function CustomInput({ label, placeholder }: CustomInputProps) {
           color: colors.darkGreen,
           marginBottom: 5,
           fontSize: 10,
-          textTransform: "capitalize" 
+          textTransform: "capitalize",
         }}
         inputContainerStyle={{
           backgroundColor: "white",
@@ -29,6 +29,7 @@ export default function CustomInput({ label, placeholder }: CustomInputProps) {
         inputStyle={{
             fontSize: 12,
             color: colors.darkGreen,
+            fontFamily: "Outfit_300Light"
         }}
         containerStyle={{
             paddingHorizontal: 0

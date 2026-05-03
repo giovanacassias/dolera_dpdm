@@ -9,7 +9,7 @@
     "newArchEnabled": true,
     "scheme": "your-app-scheme",
     "experiments": {
-    "typedRoutes": true
+      "typedRoutes": true
     },
     "splash": {
       "image": "./assets/splash-icon.png",
@@ -32,7 +32,8 @@
       "bundler": "metro"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-font"
     ]
   }
 }

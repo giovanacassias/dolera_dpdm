@@ -13,7 +13,7 @@ export default function index() {
 
   return (
     <View className="p-6 flex-1 items-center justify-center bg-almost-white">
-      <Text className="text-dark-green font-semibold text-base">
+      <Text className="text-dark-green font-outfit-semibold text-lg">
         Welcome to
       </Text>
 
@@ -26,6 +26,7 @@ export default function index() {
       </View>
 
       <Input
+        textContentType="emailAddress"
         placeholder="youremail@gmail.com"
         placeholderTextColor={colors.darkGreen}
         inputStyle={{
@@ -35,6 +36,7 @@ export default function index() {
       ></Input>
 
       <Input
+        textContentType="password"
         placeholder="********"
         placeholderTextColor={colors.darkGreen}
         inputStyle={{

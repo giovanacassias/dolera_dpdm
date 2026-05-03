@@ -21,7 +21,7 @@ export default function ButtonDarkCoral({ title, onPress }: CustomButtonProps) {
         titleStyle={{
           textTransform: "uppercase",
           fontSize: 12,
-          fontWeight: "800",
+          fontFamily: "Outfit_600SemiBold"
         }}
       />
     </View>

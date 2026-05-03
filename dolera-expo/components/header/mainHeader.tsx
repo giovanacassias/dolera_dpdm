@@ -16,7 +16,7 @@ export default function MainHeader() {
 
       <View className="flex-row gap-2 mt-3 items-center">
         <MaterialIcons name="info-outline" size={22} color={colors.darkGreen}/>
-        <Text className="font-medium text-base">Caio's current trip</Text>
+        <Text className="font-outfit-light text-base">Caio's current trip</Text>
       </View>
     </View>
   );

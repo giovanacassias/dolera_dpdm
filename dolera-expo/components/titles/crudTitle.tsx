@@ -13,7 +13,7 @@ export default function CrudTitle({ title1, title2 }: CrudTitleProps) {
       <Text
         style={{
           fontSize: 45,
-          fontWeight: "900",
+          fontFamily: "Outfit_800ExtraBold",
           color: `${colors.darkGreen}`,
           lineHeight: 35,
           marginTop: 20,
@@ -24,10 +24,10 @@ export default function CrudTitle({ title1, title2 }: CrudTitleProps) {
       <Text
         style={{
           fontSize: 45,
-          fontWeight: "900",
+          fontFamily: "Outfit_800ExtraBold",
           marginBottom: 20,
           color: `${colors.coral}`,
-          lineHeight: 50,
+          lineHeight: 55,
         }}
       >
         {title2}
