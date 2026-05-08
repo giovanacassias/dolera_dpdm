@@ -1,5 +1,5 @@
 import { useRouter } from "expo-router";
-import { Text, View } from "react-native";
+import { Text, View, KeyboardAvoidingView, Platform } from "react-native";
 import { Input, Image } from "@rneui/themed";
 import { colors } from "../assets/theme/colors";
 import CustomButton from "../components/customButton";
@@ -12,7 +12,7 @@ export default function index() {
   };
 
   return (
-    <View className="p-6 flex-1 items-center justify-center bg-almost-white">
+    <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={10} className="p-6 flex-1 items-center justify-center bg-almost-white">
       <Text className="text-dark-green font-outfit-semibold text-lg">
         Welcome to
       </Text>
@@ -48,6 +48,6 @@ export default function index() {
       <CustomButton>
         <CustomButton.coral title="Login" onPress={handleLogin} />
       </CustomButton>
-    </View>
+    </KeyboardAvoidingView>
   );
 }

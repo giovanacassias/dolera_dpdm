@@ -9,7 +9,7 @@ export default function MainHeader() {
     <View className="flex-1 justify-items-start w-full bg-almost-white">
       <Image
         source={require("../../assets/images/dolera-small-logo.png")}
-        style={{ width: 75, height: 30 }}
+        style={{ width: 65, height: 30 }}
         resizeMode="center"
       />
       <ScreenTitle title="France 2026" />

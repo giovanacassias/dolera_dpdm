@@ -1,5 +1,5 @@
 import { useRouter } from "expo-router";
-import { Text, View } from "react-native";
+import { Text, View, KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 import { useGlobalSearchParams } from "expo-router";
 import CrudTitle from "../../../components/titles/crudTitle";
@@ -38,14 +38,18 @@ export default function home() {
   };
 
   return (
-    <View className="w-full pl-12 pr-12 bg-almost-white flex-1">
-      <View className="bg-almost-white flex-1">
-        <CrudTitle title1="Add the" title2="Details" />
+    <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={100} className="w-full  bg-almost-white flex-1">
+      <ScrollView>
+        <View className="w-full pl-12 pr-12 bg-almost-white flex-1">
+        <View className="bg-almost-white flex-1">
+          <CrudTitle title1="Add the" title2="Details" />
+          
+          <AddDetails mock={data[0]} />
 
-        <AddDetails mock={data[0]} />
-
-        <CustomButton.coral onPress={handleBackHome} title="SAVE" />
+          <CustomButton.coral onPress={handleBackHome} title="SAVE" />
+        </View>
       </View>
-    </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
