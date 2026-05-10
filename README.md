@@ -90,20 +90,25 @@ ___
 
 **SPRINT 3 - Implementação das três telas (3 semanas) 02/mai**
 
-- [ ] Definir quais componentes da Biblioteca de Componentes React Native serão utilizadas nas telas;
-- [ ] Criar componentes personalizados para a implementação das três telas (ex.: lista de gastos, formulário de novo gasto, etc);
-- [ ] Implementar tela “Expense - create (category)”;
-- [ ] Implementar tela “Expense - create (details)”;
-- [ ] Implementar tela “Home”;
-- [ ] Mock de dados;
+- [x] Definir quais componentes da Biblioteca de Componentes React Native serão utilizadas nas telas;
+- [x] Criar componentes personalizados para a implementação das três telas (ex.: lista de gastos, formulário de novo gasto, etc);
+- [x] Implementar tela “Expense - create (category)”;
+- [x] Implementar tela “Expense - create (details)”;
+- [x] Implementar tela “Home”;
+- [x] Mock de dados;
 
 *PR: Implementação das telas “home”, “novo gasto (categoria)” e “novo gasto (detalhes)”*
+
+**Tarefas não previstas**
+
+- [x] Implementar tela "Login"
+- [x] Aprimorar User Experience (*KeyboardAvoidingView* nos formulários, ícones do *MaterialIcons*, fonte e cores do *Design System* planejado)
 
 ___
 
 **CHECKPOINT 2 (10/mai)**
 
- - [ ] Checkpoint 2: Entrega parcial
+ - [x] Checkpoint 2: Entrega parcial
 
 ___
 
@@ -154,11 +159,52 @@ ___
 |----------|----------|--------------------------------------|---------|
 | Sprint 1 | 1 semana | Planejamento                         | [x]     |
 | Sprint 2 | 1 semana | Estrutura inicial e Expo Router      | [x]     |
-| Sprint 3 | 3 semanas| Implementação das três telas         | [ ]     |
+| Sprint 3 | 3 semanas| Implementação das três telas         | [x]     |
 | Sprint 4 | 2 semanas| Persistência local dos dados         | [ ]     |
 | Sprint 5 | 2 semanas| Validação de dados                   | [ ]     |
 | Sprint 6 | 2 semanas| Empacotamento da aplicação           | [ ]     |
 | Sprint 7 | 1 semana | Entrega da versão final do app       | [ ]     |
+
+___
+
+## Atualizações desde o último checkpoint
+
+### Conceitos aplicados da aula "Boas práticas para a criação de componentes reutilizáveis"
+
+**Compound componente**
+- Utilizei o conceito de componente composto nos botões do sistema que compartilham o mesmo contexto, sendo *buttonCoral*, *buttonDarkCoral* e *buttonWhite* (dolera-expo\components\customButton\index.tsx);
+  
+**Componentes que disparam eventos para o componente pai** 
+- Na tela de selecionar a(s) categoria(s) no checkbox daquele novo gasto, temos a tela *create-category.tsx* que funciona como um wrapper. Dentro dela temos *expenseCategory.tsx* que é o componente que renderiza todas as categorias em um único "checkbox" customizado e que implementa a função *toggleCategory*, responsável por incluir e excluir o número correspondente da categoria selecionada ao array *selected<number>*. Dentro desse componente é renderizado o componente *CategoryCheckBox* que representa uma das categorias, e nele é passado como props a função *toggleCategory*. Ao ser clicado, essa callback é chamada, disparando o evento ao elemento pai, que é quem de fato irá executá-la. Temos então **CategoryCheckBox** que dispara o evento **toggleCategory** para o componente pai **ExpenseCategory**.
+
+**Componentes dentro de outros componentes**
+- A construção do projeto tem em vista o conceito de *Atomic Design*, logo esse conceito é encontrado em várias partes do sistema. Um dos exemplos é o componente *CustomInput*, que representa cada input do formulário de cadastro de novo gasto e que está dentro de *AddDetails*, que de fato se torna o formulário, sendo a renderização de todos os inputs necessários.
+  
+**Componentes reutilizáveis**
+- O componente *CrudTitle* é reutilizado de acordo com a tela CRUD que ele representa - 'Choose a category' e 'Add the details';
+- Outros exemplos são o customInput e screenTitle;
+
+**Uso de mocks para popular componentes**
+- Os métodos *.filter* e *.map* são utilizados para renderizar os diferentes *CustomInput* e mockar os dados de cada input. Já no formulário de login os dados são mockados através de *placeholders*.
+
+
+### Recursos dos módulos 7 "Estilização de componentes com NativeWind" e módulo 8 "Biblioteca de Componentes React Native Elements"
+
+- Icons do MaterialIcons;
+- NativeWind (Input, Image, Button, CheckBox, Text);
+- Estilização tanto com *TailwindCSS* quanto com *style* nos componentes *NativeWind*;
+
+
+### Componentes personalizados e UX
+
+- Fonte 'Outfit' do GoogleFonts;
+- KeyboardAvoidingView nos forms para melhorar a UX;
+- Componentes personalizados:
+  - customButton (buttonCoral, buttonDarkCoral, buttonWhite);
+  - expenses (categoryCheckBox, expenseCategory, expenseItem, expensesFlatList);
+  - forms/inputs (customInput, addDetails);
+  - forms/header (budget, mainHeader);
+  - forms/titles (crudTitle, screenTitle);
 
 ___
 
