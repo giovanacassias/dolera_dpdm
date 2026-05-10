@@ -109,6 +109,7 @@ ___
 **CHECKPOINT 2 (10/mai)**
 
  - [x] Checkpoint 2: Entrega parcial
+- [Link para vídeo curto da navegação entre telas](https://www.youtube.com/shorts/tENp3Leb5-4)
 
 ___
 
