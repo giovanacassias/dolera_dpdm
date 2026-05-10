@@ -8,7 +8,7 @@ module.exports = {
       colors: {
         "almost-white": "#FAFAFA",
         "light-coral": "#FA795DBF",
-        coral: "#FA795D",
+        "coral": "#FA795D",
         "dark-coral": "#FB6848",
         "dark-green": "#233329",
       },
