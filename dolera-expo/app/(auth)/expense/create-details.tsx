@@ -1,34 +1,55 @@
-import { useRouter } from 'expo-router';
-import { StyleSheet, Text, View } from 'react-native';
-import { Button } from 'react-native';
+import { useRouter } from "expo-router";
+import { Text, View, KeyboardAvoidingView, Platform, ScrollView } from "react-native";
+import { Dropdown } from "react-native-element-dropdown";
+import { useGlobalSearchParams } from "expo-router";
+import CrudTitle from "../../../components/titles/crudTitle";
+import AddDetails from "../../../components/forms/addDetails";
+import CustomButton from "../../../components/customButton";
+import { data } from "../../../mocks/expenses";
 
 export default function home() {
+  let { categories } = useGlobalSearchParams();
+
+  let parsedCategories = [];
+
+  if (typeof categories === "string") {
+    try {
+      parsedCategories = JSON.parse(categories);
+      console.log(`Typeof "parsedCategories`, typeof parsedCategories);
+      console.log(
+        `"parsedCategories isArray?`,
+        Array.isArray(parsedCategories),
+      );
+      console.log(`Typeof "parsedCategories[0]`, typeof parsedCategories[0]);
+      console.log(`parsedCategories: ${parsedCategories}`);
+    } catch (e) {
+      console.log("Erro!");
+    }
+  }
 
   const router = useRouter();
 
   const handleBackHome = () => {
-      
-    if(router.canDismiss()){
+    if (router.canDismiss()) {
       router.dismissAll();
-      console.log('dismissed');
+      console.log("dismissed");
     }
-    router.push('/(auth)/home')
-  }
+    router.push("/(auth)/home");
+  };
 
   return (
-    <View style={styles.container}>
-      <Text>Expense - details</Text>
-      <Text>Add details</Text>
-      <Button title='SAVE' onPress={handleBackHome}/>
-    </View>
+    <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={100} className="w-full  bg-almost-white flex-1">
+      <ScrollView>
+        <View className="w-full pl-12 pr-12 bg-almost-white flex-1">
+        <View className="bg-almost-white flex-1">
+          <CrudTitle title1="Add the" title2="Details" />
+          
+          <AddDetails mock={data[0]} />
+
+          <CustomButton.coral onPress={handleBackHome} title="SAVE" />
+        </View>
+      </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
