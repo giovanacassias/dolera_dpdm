@@ -15,13 +15,13 @@ export default function home() {
   if (typeof categories === "string") {
     try {
       parsedCategories = JSON.parse(categories);
-      console.log(`Typeof "parsedCategories`, typeof parsedCategories);
+      /* console.log(`Typeof "parsedCategories`, typeof parsedCategories);
       console.log(
         `"parsedCategories isArray?`,
         Array.isArray(parsedCategories),
       );
       console.log(`Typeof "parsedCategories[0]`, typeof parsedCategories[0]);
-      console.log(`parsedCategories: ${parsedCategories}`);
+      console.log(`parsedCategories: ${parsedCategories}`); */
     } catch (e) {
       console.log("Erro!");
     }
@@ -44,9 +44,9 @@ export default function home() {
         <View className="bg-almost-white flex-1">
           <CrudTitle title1="Add the" title2="Details" />
           
-          <AddDetails mock={data[0]} />
+          <AddDetails chosenCategories={parsedCategories} />
 
-          <CustomButton.coral onPress={handleBackHome} title="SAVE" />
+          {/* <CustomButton.coral onPress={handleBackHome} title="SAVE" /> */}
         </View>
       </View>
       </ScrollView>
