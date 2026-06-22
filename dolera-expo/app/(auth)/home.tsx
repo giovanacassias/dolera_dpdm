@@ -63,7 +63,7 @@ export default function home() {
           title="Add expense"
           onPress={handleMoveToNextPage}
         />
-        <CustomButton.darkCoral title="Clean db" onPress={clean} />
+        {/* <CustomButton.darkCoral title="Clean db" onPress={clean} /> */}
       </View>
     </View>
   );
