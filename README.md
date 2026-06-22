@@ -141,10 +141,10 @@ ___
 
 **SPRINT 7 - Entrega da versão final do app (1 semana) 20/jun**
 
-- [ ] Revisar o cumprimento de todos os requisitos;
-- [ ] Corrigir possíveis erros;
-- [ ] Gravar vídeo de defesa;
-- [ ] Realizar a entrega final;
+- [x] Revisar o cumprimento de todos os requisitos;
+- [x] Corrigir possíveis erros;
+- [x] Gravar vídeo de defesa;
+- [x] Realizar a entrega final;
 
 ___
 
@@ -164,7 +164,7 @@ ___
 | Sprint 4 | 2 semanas| Persistência local dos dados         | [x]     |
 | Sprint 5 | 2 semanas| Validação de dados                   | [x]     |
 | Sprint 6 | 2 semanas| Empacotamento da aplicação           | [ ]     |
-| Sprint 7 | 1 semana | Entrega da versão final do app       | [ ]     |
+| Sprint 7 | 1 semana | Entrega da versão final do app       | [x]     |
 
 ___
 
