@@ -115,7 +115,7 @@ ___
 
 **SPRINT 4 - Persistência local dos dados (2 semanas) 16/mai**
 
-- [ ] Persistir os dados localmente via SQLite;
+- [x] Persistir os dados localmente via SQLite;
 
 *PR: Persistência dos dados ao cadastrar um novo gasto*
 
@@ -123,8 +123,8 @@ ___
 
 **SPRINT 5 - Validação de dados (2 semanas) 30/mai**
 
-- [ ] Implementar validações no formulário de um novo gasto;
-- [ ] Testar com entradas corretas e incorretas;
+- [x] Implementar validações no formulário de um novo gasto;
+- [x] Testar com entradas corretas e incorretas;
 
 *PR: Validação dos dados do formulário de um novo gasto*
 
@@ -161,8 +161,8 @@ ___
 | Sprint 1 | 1 semana | Planejamento                         | [x]     |
 | Sprint 2 | 1 semana | Estrutura inicial e Expo Router      | [x]     |
 | Sprint 3 | 3 semanas| Implementação das três telas         | [x]     |
-| Sprint 4 | 2 semanas| Persistência local dos dados         | [ ]     |
-| Sprint 5 | 2 semanas| Validação de dados                   | [ ]     |
+| Sprint 4 | 2 semanas| Persistência local dos dados         | [x]     |
+| Sprint 5 | 2 semanas| Validação de dados                   | [x]     |
 | Sprint 6 | 2 semanas| Empacotamento da aplicação           | [ ]     |
 | Sprint 7 | 1 semana | Entrega da versão final do app       | [ ]     |
 
