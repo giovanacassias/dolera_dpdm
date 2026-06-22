@@ -7,6 +7,9 @@ import CustomButton from "../../components/customButton";
 import { ScrollView } from "react-native";
 import ExpensesFlatList from "../../components/expense/expensesFlatList";
 import Budget from "../../components/header/budget";
+import ExpenseRepository, {
+  Expense,
+} from "../../src/database/ExpenseRepository";
 
 const categories: Category[] = [
   { id: 1, name: "Accommodation", icon: "cottage" },
@@ -20,6 +23,7 @@ const categories: Category[] = [
 
 export default function home() {
   const router = useRouter();
+  const repository = new ExpenseRepository();
 
   const handleMoveToNextPage = () => {
     router.push("/(auth)/expense/create-category");

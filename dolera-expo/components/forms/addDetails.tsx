@@ -8,6 +8,7 @@ import { ExpenseForm } from "../../types/ExpenseForm";
 import CustomButton from "../customButton";
 import { ExpenseZod } from "../../schemas/Expense";
 import { z } from "zod";
+import { useRouter } from "expo-router";
 
 interface AddDetailsProps {
   chosenCategories: number[];
@@ -16,8 +17,10 @@ interface AddDetailsProps {
 const repository = new ExpenseRepository();
 
 export default function AddDetails({ chosenCategories }: AddDetailsProps) {
-
-  const [errors, setErrors] = useState<Partial<Record<keyof ExpenseForm, string>>>({}); //GUARDANDO OS ERROS
+  const router = useRouter();
+  const [errors, setErrors] = useState<
+    Partial<Record<keyof ExpenseForm, string>>
+  >({}); //GUARDANDO OS ERROS
   const [expenses, setExpenses] = useState<Expense[]>([]); //GUARDANDO GASTOS QUE VEM DO BANCO DE DADOS
   const [expenseForm, setExpenseForm] = useState<ExpenseForm>({
     trip_id: "1",
@@ -28,15 +31,23 @@ export default function AddDetails({ chosenCategories }: AddDetailsProps) {
     amount: "",
   }); //GUARDANDO INPUTS DO USUÁRIO
 
+  const handleBackHome = () => {
+    if (router.canDismiss()) {
+      router.dismissAll();
+      console.log("dismissed");
+    }
+    router.push("/(auth)/home");
+  };
+
   //PERSISTINDO UM GASTO
-  const create = async () => {
+  const create = async (data: ExpenseZod) => {
     const id = await repository.create({
-      trip_id: 1,
-      category_id: 1,
-      name: "Teste",
-      note: "Testando",
-      date: "16/06/2026",
-      amount: 2000,
+      trip_id: data.trip_id,
+      category_id: data.category_id,
+      name: data.name,
+      note: data.note,
+      date: data.date,
+      amount: data.amount,
     });
 
     console.log("Created: ", id);
@@ -52,31 +63,37 @@ export default function AddDetails({ chosenCategories }: AddDetailsProps) {
   };
 
   //FAZENDO PARSE DOS INPUTS DO USUÁRIO COM ZOD
-  const parse = () => {
-  try {
-    const data = ExpenseZod.parse(expenseForm);
+  const submit = () => {
+    try {
+      const data = ExpenseZod.parse(expenseForm);
 
-    console.log("DEPOIS:", data);
+      console.log("DEPOIS:", data);
 
-    setErrors({});
+      setErrors({});
 
-  } catch (error) {
-    if (error instanceof z.ZodError) {
+      //salvando no banco
+      create(data);
 
-      const fieldErrors:Partial<Record<keyof ExpenseForm, string>> = {};
+      console.log("Gasto salvo com sucesso!");
 
-      error.issues.forEach((issue) => {
-        const field = issue.path[0] as keyof ExpenseForm;
+      handleBackHome();
+      
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const fieldErrors: Partial<Record<keyof ExpenseForm, string>> = {};
 
-        fieldErrors[field] = issue.message;
-      });
+        error.issues.forEach((issue) => {
+          const field = issue.path[0] as keyof ExpenseForm;
 
-      setErrors(fieldErrors);
+          fieldErrors[field] = issue.message;
+        });
 
-      console.log("ERROS:", fieldErrors);
+        setErrors(fieldErrors);
+
+        console.log("Erro ao enviar o formulário! ERROS:", fieldErrors);
+      }
     }
-  }
-};
+  };
 
   return (
     <View>
@@ -114,7 +131,7 @@ export default function AddDetails({ chosenCategories }: AddDetailsProps) {
       ></CustomInput>
 
       <View className="mt-12">
-        <CustomButton.coral onPress={parse} title="SAVE"/>
+        <CustomButton.coral onPress={submit} title="CREATE EXPENSE" />
       </View>
     </View>
   );

@@ -1,7 +1,7 @@
 import db from "./SQLiteDatabase";
 
 export type Expense = {
-  id?: number;
+  id: number;
   trip_id: number;
   category_id: number;
   name: string;
@@ -36,13 +36,22 @@ export default class ExpenseRepository {
         `);
   }
 
-  public async create(expense: Expense) {
+  public async delete() {
+    await db.runAsync(`DELETE FROM expenses`);
+  }
+
+  public async create(expense: ExpenseForm) {
     const result = await db.runAsync(
       `
         INSERT INTO expenses (trip_id, category_id, name, note, date, amount) values (?, ?, ?, ?, ?, ?);
         `,
       [
-        expense.trip_id, expense.category_id, expense.name, expense.note, expense.date, expense.amount
+        expense.trip_id,
+        expense.category_id,
+        expense.name,
+        expense.note,
+        expense.date,
+        expense.amount,
       ],
     );
 
@@ -50,9 +59,8 @@ export default class ExpenseRepository {
   }
 
   public async all() {
-    const result = await db.getAllAsync<Expense>(`
-        SELECT * FROM expenses
-        `);
+    const result = await db.getAllAsync<Expense>(`SELECT * FROM expenses`);
+
     return result;
   }
 }
