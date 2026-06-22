@@ -6,28 +6,16 @@ import ExpenseRepository, {
   Expense,
 } from "../../src/database/ExpenseRepository";
 import { useEffect, useState } from "react";
+import CustomButton from "../customButton";
 
-export default function ExpensesFlatList() {
+export default function ExpensesFlatList( { expenses }: { expenses: Expense[] }) {
   const repository = new ExpenseRepository();
 
   const findIcon = (index: number) => {
     return categories[index - 1].icon;
   };
 
-  const [expenses, setExpenses] = useState<Expense[]>([]);
-
-  useEffect(() => {
-    const init = async () => {
-      /* await repository.delete(); */
-
-      const data = await repository.all();
-      console.log("Expenses on DB: ", data);
-
-      setExpenses(data);
-    };
-
-    init();
-  }, []);
+ 
 
   return (
     <View className="bg-almost-white  flex justify-center">

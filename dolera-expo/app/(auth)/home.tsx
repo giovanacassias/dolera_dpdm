@@ -10,6 +10,7 @@ import Budget from "../../components/header/budget";
 import ExpenseRepository, {
   Expense,
 } from "../../src/database/ExpenseRepository";
+import { useEffect, useState } from "react";
 
 const categories: Category[] = [
   { id: 1, name: "Accommodation", icon: "cottage" },
@@ -25,6 +26,22 @@ export default function home() {
   const router = useRouter();
   const repository = new ExpenseRepository();
 
+  const [expenses, setExpenses] = useState<Expense[]>([]);
+
+  const loadExpenses = async () => {
+    const data = await repository.all();
+    setExpenses(data);
+  };
+
+  useEffect(() => {
+    loadExpenses();
+  }, []);
+
+  const clean = async () => {
+    await repository.delete();
+    await loadExpenses(); // 👈 atualiza UI corretamente
+  };
+
   const handleMoveToNextPage = () => {
     router.push("/(auth)/expense/create-category");
   };
@@ -38,14 +55,15 @@ export default function home() {
       <Budget />
 
       <View className="bg-almost-white h-3/6 flex justify-center">
-        <ExpensesFlatList />
+        <ExpensesFlatList expenses={expenses} />
       </View>
 
-      <View className="w-full h-1/6 flex justify-center">
+      <View className="w-full h-1/6 flex justify-center gap-4">
         <CustomButton.coral
           title="Add expense"
           onPress={handleMoveToNextPage}
         />
+        <CustomButton.darkCoral title="Clean db" onPress={clean} />
       </View>
     </View>
   );
